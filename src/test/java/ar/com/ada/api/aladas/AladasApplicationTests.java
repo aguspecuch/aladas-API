@@ -40,4 +40,17 @@ class AladasApplicationTests {
 		assertFalse(aeropuertoService.validarCodigoIATA(aeropuerto4));
 	}
 
+	@Test
+	void aeropuertoValidarExiste() {
+
+		Aeropuerto aeropuerto1 = new Aeropuerto();
+		aeropuerto1.setId(10);
+
+		Aeropuerto aeropuerto2 = new Aeropuerto();
+		aeropuerto2.setId(3);
+
+		assertTrue(aeropuertoService.validarExiste(aeropuerto1));
+		assertFalse(aeropuertoService.validarExiste(aeropuerto2));
+	}
+
 }
