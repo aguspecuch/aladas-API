@@ -2,10 +2,7 @@ package ar.com.ada.api.aladas.entities;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import ar.com.ada.api.aladas.entities.Pais.PaisEnum;
 import ar.com.ada.api.aladas.entities.Pais.TipoDocuEnum;
