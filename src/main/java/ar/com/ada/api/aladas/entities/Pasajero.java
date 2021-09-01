@@ -11,7 +11,7 @@ public class Pasajero extends Persona {
     @Id
     @Column(name = "pasajero_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer pasajeroId;
 
     @OneToMany(mappedBy = "pasajero", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Reserva> reservas;
@@ -19,12 +19,12 @@ public class Pasajero extends Persona {
     @OneToOne(mappedBy = "pasajero", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Usuario usuario;
 
-    public Integer getId() {
-        return id;
+    public Integer getPasajeroId() {
+        return pasajeroId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setPasajeroId(Integer pasajeroId) {
+        this.pasajeroId = pasajeroId;
     }
 
     public List<Reserva> getReservas() {

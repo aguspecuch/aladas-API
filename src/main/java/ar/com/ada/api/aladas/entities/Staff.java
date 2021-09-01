@@ -9,17 +9,17 @@ public class Staff extends Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "staff_id")
-    private Integer id;
+    private Integer staffId;
 
     @OneToOne(mappedBy = "staff", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Usuario usuario;
 
-    public Integer getId() {
-        return id;
+    public Integer getStaffId() {
+        return staffId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setStaffId(Integer staffId) {
+        this.staffId = staffId;
     }
 
     public Usuario getUsuario() {
