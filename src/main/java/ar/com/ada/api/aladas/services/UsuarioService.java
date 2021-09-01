@@ -20,6 +20,7 @@ import ar.com.ada.api.aladas.entities.Pais.TipoDocuEnum;
 import ar.com.ada.api.aladas.entities.Usuario.TipoUsuarioEnum;
 import ar.com.ada.api.aladas.repos.UsuarioRepository;
 import ar.com.ada.api.aladas.security.Crypto;
+import ar.com.ada.api.aladas.sistema.comm.EmailService;
 
 @Service
 public class UsuarioService {
@@ -32,6 +33,9 @@ public class UsuarioService {
 
     @Autowired
     StaffService staffService;
+
+    @Autowired
+    EmailService emailService;
 
     public Usuario crearUsuario(TipoUsuarioEnum tipoUsuario, String nombre, int pais, Date fechaNacimiento,
             TipoDocuEnum tipoDocumento, String documento, String email, String password) {
@@ -67,6 +71,8 @@ public class UsuarioService {
 
             staffService.crear(staff);
         }
+
+        emailService.SendEmail(usuario.getEmail(), "Registracion Exitosa", "Bienvenido a Aladas! Usted se ha registrado con exito.");
 
         return usuario;
     }
