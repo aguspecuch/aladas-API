@@ -11,8 +11,7 @@ public class Usuario {
     @Id
     @Column(name = "usuario_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+    private Integer usuarioId;
     private String username;
 
     private String password;
@@ -33,12 +32,12 @@ public class Usuario {
     @JoinColumn(name = "pasajero_id", referencedColumnName = "pasajero_id")
     private Pasajero pasajero;
 
-    public Integer getId() {
-        return id;
+    public Integer getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUsuarioId(Integer usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public String getUsername() {
@@ -95,6 +94,19 @@ public class Usuario {
 
     public void setPasajero(Pasajero pasajero) {
         this.pasajero = pasajero;
+    }
+
+    public Integer obtenerEntityId() {
+
+        switch (this.getTipoUsuario()) {
+            case PASAJERO:
+                return this.getPasajero().getPasajeroId();
+            case STAFF:
+                return this.getStaff().getStaffId();
+            default:
+                break;
+        }
+        return null;
     }
 
     public enum TipoUsuarioEnum {
