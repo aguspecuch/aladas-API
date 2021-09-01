@@ -35,11 +35,11 @@ public class ReservaService {
 
         reserva.setFechaVencimiento(c.getTime());
 
-        Vuelo vuelo = vueloService.buscarById(vueloId)
+        Vuelo vuelo = vueloService.buscarById(vueloId);
         reserva.setVuelo(vuelo);
         reserva.setEstadoReservaId(EstadoReservaEnum.CREADA);
 
-        Pasajero pasajero = pasajeroService.traerById(pasajeroId)
+        Pasajero pasajero = pasajeroService.buscarPorId(pasajeroId);
         reserva.setPasajero(pasajero);
 
         pasajero.agregarReserva(reserva);
