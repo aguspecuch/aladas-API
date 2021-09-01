@@ -1,0 +1,14 @@
+Host
+ec2-34-234-12-149.compute-1.amazonaws.com
+Database
+d1iv451bn1blha
+User
+vbvlcclrutylpe
+Port
+5432
+Password
+c01b801507e29f874012ee1a4160aa376366426a81baa304e5fff10979172d05
+URI
+postgres://vbvlcclrutylpe:c01b801507e29f874012ee1a4160aa376366426a81baa304e5fff10979172d05@ec2-34-234-12-149.compute-1.amazonaws.com:5432/d1iv451bn1blha
+Heroku CLI
+heroku pg:psql postgresql-fitted-57397 --app aladas-api-ap
