@@ -1,7 +1,10 @@
 package ar.com.ada.api.aladas.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,6 +43,11 @@ public class AeropuertoController {
             return ResponseEntity.badRequest().body(r);
         }
 
+    }
+
+    @GetMapping("/api/aeropuertos")
+    public ResponseEntity<List<Aeropuerto>> traerTodos(){
+        return ResponseEntity.ok(service.traerTodos());
     }
 
     

@@ -1,5 +1,7 @@
 package ar.com.ada.api.aladas.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,10 @@ public class AeropuertoService {
 
     public Aeropuerto buscarById(Integer id) {
         return repo.findByAeropuertoId(id);
+    }
+
+    public List<Aeropuerto> traerTodos() {
+        return repo.findAll();
     }
 
     public enum ValidacionAeropuertoDataEnum {
