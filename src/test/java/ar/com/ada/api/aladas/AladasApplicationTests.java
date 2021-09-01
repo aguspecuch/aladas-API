@@ -3,12 +3,17 @@ package ar.com.ada.api.aladas;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.math.BigDecimal;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import ar.com.ada.api.aladas.entities.Aeropuerto;
+import ar.com.ada.api.aladas.entities.Vuelo;
+import ar.com.ada.api.aladas.entities.Vuelo.EstadoVueloEnum;
 import ar.com.ada.api.aladas.services.AeropuertoService;
+import ar.com.ada.api.aladas.services.VueloService;
 
 @SpringBootTest
 class AladasApplicationTests {
@@ -19,6 +24,9 @@ class AladasApplicationTests {
 
 	@Autowired
 	AeropuertoService aeropuertoService;
+
+	@Autowired
+	VueloService vueloService;
 
 	@Test
 	void aeropuertoValidarCodigoIATA() {
@@ -51,6 +59,51 @@ class AladasApplicationTests {
 
 		assertTrue(aeropuertoService.validarExiste(aeropuerto1));
 		assertFalse(aeropuertoService.validarExiste(aeropuerto2));
+	}
+
+	@Test
+	void vueloValidarAeropuertosIguales() {
+		
+		Vuelo vuelo = new Vuelo();
+		vuelo.setPrecio(new BigDecimal(1000));
+		vuelo.setEstadoVueloId(EstadoVueloEnum.GENERADO);
+		vuelo.setAeropuertoOrigen(116);
+		vuelo.setAeropuertoDestino(116);
+
+		assertTrue(vueloService.validarAeropuertos(vuelo));
+	}
+
+	@Test
+	void vueloValidarPrecio() {
+
+		Vuelo vuelo = new Vuelo();
+		vuelo.setPrecio(new BigDecimal(1000));
+		Vuelo vuelo2 = new Vuelo();
+		vuelo2.setPrecio(new BigDecimal(-1000));
+		Vuelo vuelo3 = new Vuelo();
+		
+		assertTrue(vueloService.validarPrecio(vuelo));
+		assertFalse(vueloService.validarPrecio(vuelo2));
+		assertFalse(vueloService.validarPrecio(vuelo3));
+
+	}
+
+	@Test
+	void vueloValidarCapacidad() {
+
+		Vuelo vuelo = new Vuelo();
+		vuelo.setCapacidad(50);
+		Vuelo vuelo2 = new Vuelo();
+		vuelo2.setCapacidad(-50);
+		Vuelo vuelo3 = new Vuelo();
+		vuelo3.setCapacidad(15050);
+
+		assertTrue(vueloService.validarCapacidadMinima(vuelo));
+		assertTrue(vueloService.validarCapacidadMaxima(vuelo));
+		assertFalse(vueloService.validarCapacidadMinima(vuelo2));
+		assertFalse(vueloService.validarCapacidadMaxima(vuelo3));
+
+
 	}
 
 }
