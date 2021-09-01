@@ -27,7 +27,7 @@ public class AeropuertoController {
             service.crear(aeropuerto);
 
             r.isOk = true;
-            r.id = aeropuerto.getId();
+            r.id = aeropuerto.getAeropuertoId();
             r.message = "Aeropuerto creado con exito.";
     
             return ResponseEntity.ok(r);

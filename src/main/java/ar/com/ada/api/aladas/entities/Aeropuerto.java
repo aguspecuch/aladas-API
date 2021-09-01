@@ -9,7 +9,7 @@ public class Aeropuerto {
     
     @Id
     @Column(name = "aeropuerto_id")
-    private Integer id;
+    private Integer aeropuertoId;
 
     @Column(name = "nombre_aeropuerto")
     private String nombre;
@@ -17,12 +17,12 @@ public class Aeropuerto {
     @Column(name = "codigo_IATA")
     private String codigoIATA;
 
-    public Integer getId() {
-        return id;
+    public Integer getAeropuertoId() {
+        return aeropuertoId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setAeropuertoId(Integer aeropuertoId) {
+        this.aeropuertoId = aeropuertoId;
     }
 
     public String getNombre() {

@@ -44,10 +44,10 @@ class AladasApplicationTests {
 	void aeropuertoValidarExiste() {
 
 		Aeropuerto aeropuerto1 = new Aeropuerto();
-		aeropuerto1.setId(10);
+		aeropuerto1.setAeropuertoId(10);
 
 		Aeropuerto aeropuerto2 = new Aeropuerto();
-		aeropuerto2.setId(3);
+		aeropuerto2.setAeropuertoId(3);
 
 		assertTrue(aeropuertoService.validarExiste(aeropuerto1));
 		assertFalse(aeropuertoService.validarExiste(aeropuerto2));

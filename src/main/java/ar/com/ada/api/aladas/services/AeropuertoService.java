@@ -16,6 +16,10 @@ public class AeropuertoService {
         repo.save(aeropuerto);
     }
 
+    public Aeropuerto buscarById(Integer id) {
+        return repo.findByAeropuertoId(id);
+    }
+
     public enum ValidacionAeropuertoDataEnum {
         OK, ERROR_AEROPUERTO_YA_EXISTE, ERROR_CODIGO_IATA, ERROR_CODIGO_IATA_YA_REGISTRADO;
     }
@@ -40,7 +44,7 @@ public class AeropuertoService {
 
     public boolean validarExiste(Aeropuerto aeropuerto) {
 
-        if(repo.existsById(aeropuerto.getId())) {
+        if(repo.existsById(aeropuerto.getAeropuertoId())) {
             return false;
         }
 

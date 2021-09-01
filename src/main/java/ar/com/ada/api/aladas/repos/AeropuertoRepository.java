@@ -9,4 +9,5 @@ import ar.com.ada.api.aladas.entities.Aeropuerto;
 public interface AeropuertoRepository extends JpaRepository<Aeropuerto, Integer>{
     
     Integer findByCodigoIATA(String codigoIATA);
+    Aeropuerto findByAeropuertoId(Integer id);
 }
