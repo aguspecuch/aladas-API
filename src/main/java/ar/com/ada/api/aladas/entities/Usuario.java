@@ -12,6 +12,7 @@ public class Usuario {
     @Column(name = "usuario_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer usuarioId;
+    
     private String username;
 
     private String password;
