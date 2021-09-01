@@ -112,6 +112,10 @@ public class Vuelo {
         reserva.setVuelo(this);
     }
 
+    public Integer actualizarCapacidad() {
+        return this.capacidad - 1;
+    }
+
     public enum EstadoVueloEnum {
         GENERADO(1), ORIGEN_ASIGNADO(2), DESTINO_ASIGNADO(3), TRIPULACION_PREASIGNADA(4), ABIERTO(5), CONFIRMADO(6),
         REPROGRAMADO(7), CANCELADO(8), CERRADO(9);

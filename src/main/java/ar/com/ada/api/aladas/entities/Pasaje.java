@@ -10,7 +10,7 @@ public class Pasaje {
     @Id
     @Column(name = "pasaje_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer pasajeId;
 
     @Column(name = "info_pago")
     private String infoPago;
@@ -22,12 +22,12 @@ public class Pasaje {
     @Column(name = "fecha_emision")
     private Date fechaEmision;
 
-    public Integer getId() {
-        return id;
+    public Integer getPasajeId() {
+        return pasajeId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setPasajeId(Integer pasajeId) {
+        this.pasajeId = pasajeId;
     }
 
     public String getInfoPago() {
@@ -44,6 +44,7 @@ public class Pasaje {
 
     public void setReserva(Reserva reserva) {
         this.reserva = reserva;
+        reserva.setPasaje(this);
     }
 
     public Date getFechaEmision() {

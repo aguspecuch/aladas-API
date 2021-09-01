@@ -10,7 +10,7 @@ public class Reserva {
     @Id
     @Column(name = "reserva_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer reservaId;
 
     @ManyToOne
     @JoinColumn(name = "vuelo_id", referencedColumnName = "vuelo_id")
@@ -32,12 +32,12 @@ public class Reserva {
     @Column(name = "fecha_vencimiento")
     private Date fechaVencimiento;
 
-    public Integer getId() {
-        return id;
+    public Integer getReservaId() {
+        return reservaId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setReservaId(Integer reservaId) {
+        this.reservaId = reservaId;
     }
 
     public Vuelo getVuelo() {
@@ -78,6 +78,14 @@ public class Reserva {
 
     public void setFechaVencimiento(Date fechaVencimiento) {
         this.fechaVencimiento = fechaVencimiento;
+    }
+
+    public Pasaje getPasaje() {
+        return pasaje;
+    }
+
+    public void setPasaje(Pasaje pasaje) {
+        this.pasaje = pasaje;
     }
 
     public enum EstadoReservaEnum {
