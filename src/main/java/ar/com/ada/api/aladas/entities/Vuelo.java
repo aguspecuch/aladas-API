@@ -12,7 +12,7 @@ public class Vuelo {
     @Id
     @Column(name = "vuelo_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer vueloId;
 
     private Date fecha;
 
@@ -35,12 +35,12 @@ public class Vuelo {
     @OneToMany(mappedBy = "vuelo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Reserva> reservas;
 
-    public Integer getId() {
-        return id;
+    public Integer getVueloId() {
+        return vueloId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setVueloId(Integer vueloId) {
+        this.vueloId = vueloId;
     }
 
     public Date getFecha() {

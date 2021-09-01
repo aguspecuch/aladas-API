@@ -1,6 +1,7 @@
 package ar.com.ada.api.aladas.services;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,23 @@ public class VueloService {
 
         vuelo.setEstadoVueloId(EstadoVueloEnum.GENERADO);
         repo.save(vuelo);
+
+    }
+
+    public Vuelo buscarById(Integer id) {
+
+        return repo.findByVueloId(id);
+
+    }
+
+    public void actualizar(Vuelo vuelo) {
+
+        repo.save(vuelo);
+        
+    }
+
+    public List<Vuelo> traerVuelos() {
+        return repo.findAll();
     }
 
     // Faltaria la validacion de codigo moneda.
