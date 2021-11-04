@@ -14,6 +14,7 @@ Prototipo de API Rest para la aerolinea "Aladas" que permite reservar un pasaje 
 
 <h2>🛢 Base de datos MySQL: </h2>
 
+![aladas_db](https://user-images.githubusercontent.com/79877290/140429049-5c8a5008-565e-453d-8e40-006318707619.png)
 
 
 <h2>📚 Documentacion:</h2>
